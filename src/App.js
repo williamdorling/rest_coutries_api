@@ -1,6 +1,6 @@
 import './App.css';
 
-import CountriesContainer from './containers/CounriesContainer';
+import CountriesContainer from './containers/CountriesContainer';
 
 
 function App() {
