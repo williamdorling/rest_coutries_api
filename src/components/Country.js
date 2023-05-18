@@ -1,9 +1,6 @@
-import { useState } from "react";
 
 const Country = ({country, markCountryAsVisited}) => {
 
-    // let visited = false;
-    
     const handleMarkAsVisited = (e) => {
         markCountryAsVisited(country);
     }
@@ -14,8 +11,8 @@ const Country = ({country, markCountryAsVisited}) => {
             <p>population: {country.population}</p>
             <p>Capital:  {country.capital}</p>
             <input 
-                onChange={handleMarkAsVisited}
-                type="checkbox" 
+                onClick={handleMarkAsVisited}
+                type="button" 
                 id="visited" 
                 name="visited" 
                 />

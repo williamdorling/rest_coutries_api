@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Country from "../components/Country";
+import VisitedCountry from "../components/VisitedCountry";
+
 
 const CountriesContainer = ({}) => {
     
     const[countries, setCountries] = useState([]);
-    // const[visited, setVisited] = useState(false);
+    const[visitedCountries, setVisitedCountries] = useState([]);
 
     const fetchCountries = async () =>{
         const response = await fetch("https://restcountries.com/v3.1/all");
@@ -18,7 +20,20 @@ const CountriesContainer = ({}) => {
 
 
     const markCountryAsVisited = (country) =>{
-        country.visited = true;
+        const index = countries.indexOf(country);
+
+        const newCountry = {
+            name: country.name,
+            flag: country.flag,
+            population: country.population,
+            capital: country.capital,
+            visited: true
+        }
+
+        // const updatedCountries = [...countries].splice(index,1);
+        setCountries(countries.filter(oldCountry => oldCountry.name !==country.name))
+        // setCountries([updatedCountries])
+        setVisitedCountries([...visitedCountries, newCountry])
     }
     
     const countryComponents = countries.map(country => <Country country={country} markCountryAsVisited = {markCountryAsVisited}/>);
@@ -27,7 +42,7 @@ const CountriesContainer = ({}) => {
     //     setVisited(visited);
     // }, [visited])
 
-    const visitedCountryComponents = countryComponents.filter(country => country.visited === true);
+    const visitedCountryComponents = visitedCountries.map(country => <VisitedCountry country={country}/>);
 
   
     
