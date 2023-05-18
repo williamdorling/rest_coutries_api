@@ -11,12 +11,12 @@ const Country = ({country, checkVisitedBox}) => {
             <p>population: {country.population}</p>
             <p>Capital:  {country.capital}</p>
             <input 
-                onClick={handleCheckVisited}
+                onChange={handleCheckVisited}
                 type="checkbox" 
                 id="visited" 
                 name="visited" 
                 />
-            <label  for="visited">Visited</label>
+            <label  htmlFor="visited">Visited</label>
         </>
      );
 }
