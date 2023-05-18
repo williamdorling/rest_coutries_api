@@ -19,34 +19,15 @@ const CountriesContainer = ({}) => {
     }, [])
 
 
-    const markCountryAsVisited = (country) =>{
-        const index = countries.indexOf(country);
-
-        const newCountry = {
-            name: country.name,
-            flag: country.flag,
-            population: country.population,
-            capital: country.capital,
-            visited: true
-        }
-
-        // const updatedCountries = [...countries].splice(index,1);
-        setCountries(countries.filter(oldCountry => oldCountry.name !==country.name))
-        // setCountries([updatedCountries])
-        setVisitedCountries([...visitedCountries, newCountry])
+    const checkVisitedBox = (country) =>{
+        country.visited = !country.visited;
+        setVisitedCountries(countries.filter(country => country.visited));
     }
     
-    const countryComponents = countries.map(country => <Country country={country} markCountryAsVisited = {markCountryAsVisited}/>);
-
-    // useEffect(() => {
-    //     setVisited(visited);
-    // }, [visited])
+    const countryComponents = countries.map(country => <Country country={country} checkVisitedBox = {checkVisitedBox}/>);
 
     const visitedCountryComponents = visitedCountries.map(country => <VisitedCountry country={country}/>);
 
-  
-    
-    
     return ( 
     <>
         <div id='countries'>

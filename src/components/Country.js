@@ -1,8 +1,8 @@
 
-const Country = ({country, markCountryAsVisited}) => {
+const Country = ({country, checkVisitedBox}) => {
 
-    const handleMarkAsVisited = (e) => {
-        markCountryAsVisited(country);
+    const handleCheckVisited = (e) => {
+        checkVisitedBox(country);
     }
     
     return ( 
@@ -11,8 +11,8 @@ const Country = ({country, markCountryAsVisited}) => {
             <p>population: {country.population}</p>
             <p>Capital:  {country.capital}</p>
             <input 
-                onClick={handleMarkAsVisited}
-                type="button" 
+                onClick={handleCheckVisited}
+                type="checkbox" 
                 id="visited" 
                 name="visited" 
                 />

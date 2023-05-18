@@ -1,9 +1,6 @@
 
 const VisitedCountry = ({country}) => {
-
-    // let visited = false;
-    
-    
+     
     return ( 
         <>
             <h2>{country.name.common + country.flag}</h2>
