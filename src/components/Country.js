@@ -13,10 +13,10 @@ const Country = ({country, checkVisitedBox}) => {
             <input 
                 onChange={handleCheckVisited}
                 type="checkbox" 
-                id="visited" 
+                id={country.name.common} 
                 name="visited" 
                 />
-            <label  htmlFor="visited">Visited</label>
+            <label  htmlFor={country.name.common}>Visited</label>
         </>
      );
 }
