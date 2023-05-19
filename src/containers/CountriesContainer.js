@@ -36,7 +36,7 @@ const CountriesContainer = ({}) => {
         </div>
 
         <div id='visited-countries'>
-            <h2>Visited Coutries</h2>
+            <h2>Visited Countries</h2>
             {visitedCountryComponents}
         </div> 
       </>
